@@ -2,45 +2,57 @@
   <div id="prev" class="sidebar">
     <a href="#" class="sidebar-video">
       <div class="sidebar-title">Sendung verpasst?</div>
-      <%= image_tag @schedule_previous["VDO"] ? @schedule_previous["VDO"]["VTU"]["IUR"] : "ui/default.png", :size => "176x117" %>
+      <%= image_tag @schedule_previous["IMG"] ? @schedule_previous["IMG"]["IUR"] : "ui/default.png", :size => "176x117" %>
       <h3><%= @schedule_previous["TIT"] %></h3>
-      Ende: <%= @schedule_now["BAT"] ? "#{@schedule_now["BAT"]} Uhr" : "" %>
     </a>
   </div>
 
   <div id="current">
-    <div id="video">
-      <%= image_tag("ui/video.png") %>
-      <a href="#" id="video-trigger" class="button">
-        Video jetzt anschauen
+    <div id="current-video-minified">
+      <%= image_tag @schedule_now["IMG"] ? @schedule_now["IMG"]["IUR"] : "ui/default.png", :size => "59x36" %>
+      <h1><%= @schedule_now["TIT"] %></h1>
+      <h2>
+        <%= @schedule_now["BAT"] ? @schedule_now["BAT"] : "" %> - <%= @schedule_next[1]["BAT"] ? "#{@schedule_next[1]["BAT"]} Uhr" : "" %>
+      </h2>
+      <a href="#" id="video-trigger-close" class="button">
+        Video ausblenden
       </a>
     </div>
     <div id="current-video">
       <div id="teaser-button">
-        <%= image_tag @schedule_now["VDO"] ? @schedule_now["VDO"]["VTU"]["IUR"] : "ui/default.png", :size => "260x160" %>
+        <%= image_tag @schedule_now["IMG"] ? @schedule_now["IMG"]["IUR"] : "ui/default.png", :size => "260x160" %>
+        <a href="#" id="video-trigger-open" class="button">
+          Video jetzt anschauen
+        </a>
       </div>
       <div id="description">
         <div id="nowon">Jetzt läuft:</div>
         <h1><%= @schedule_now["TIT"] %></h1>
         <h2>
-          <%= @schedule_now["BAT"] ? @schedule_now["BAT"] : "" %> - <%= @schedule_next["BAT"] ? "#{@schedule_next["BAT"]} Uhr" : "" %>
+          <%= @schedule_now["BAT"] ? @schedule_now["BAT"] : "" %> - <%= @schedule_next[1]["BAT"] ? "#{@schedule_next[1]["BAT"]} Uhr" : "" %>
         </h2>
         <p>
           <%= @schedule_now["DSS"] ? @schedule_now["DSS"] : @schedule_now["DTE"] %>
         </p>
       </div>
     </div>
-    <div id="comment-timeline">
-      <%= image_tag("ui/comment-stamps.png") %>
+    <div id="video">
+      <%= image_tag("ui/video.png") %>
     </div>
   </div>
   
   <div id="next" class="sidebar">
     <a href="#" class="sidebar-video">
-      <div class="sidebar-title">Nächste Sendung:</div>
-      <%= image_tag @schedule_next["VDO"] ? @schedule_next["VDO"]["VTU"]["IUR"] : "ui/default.png", :size => "176x117" %>
-      <h3><%= @schedule_next["TIT"] %></h3>
-      Beginn: <%= @schedule_next["BAT"] ? "#{@schedule_next["BAT"]} Uhr" : "" %>
+      <div class="sidebar-title">Nächste Sendungen:</div>
+      <%= image_tag @schedule_next[1]["IMG"] ? @schedule_next[1]["IMG"]["IUR"] : "ui/default.png", :size => "176x117" %>
+      <%= @schedule_next[1]["BAT"] ? "#{@schedule_next[1]["BAT"]} Uhr" : "" %>
+      <h3><%= @schedule_next[1]["TIT"] %></h3>
     </a>
+    <% @schedule_next.drop(2).each do |schedule_after_next| %>
+      <a href="#" class="sidebar-video">
+        <%= schedule_after_next["BAT"] ? "#{schedule_after_next["BAT"]} Uhr" : "" %>
+        <h3><%= schedule_after_next["TIT"] %></h3>
+      </a>
+    <% end %>
   </div>
 </div>

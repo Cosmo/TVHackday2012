@@ -1,11 +1,16 @@
 $(document).ready(function(){
-	$("#video-trigger").click(function() {
-		if ($("#video").css("top") === "-365px"){
-			$("#video").animate({"top" : "0"}, 300, 'swing');
-			$("#video-trigger").text("Video ausblenden");
+	$("#video-trigger-open").click(function() {
+		if ($("#video").css("margin-top") === "-329px"){
+			$("#current-video").slideUp();
+			$("#video").animate({"margin-top" : "0"}, 300, 'swing');
+			$("#current-video-minified").slideDown();
 		} else {
-			$("#video").animate({"top" : "-365px"}, 300, 'swing');
-			$("#video-trigger").text("Video jetzt anschauen");
+			$("#video").animate({"margin-top" : "-329px"}, 300, 'swing');
 		}
+	});
+	$("#video-trigger-close").click(function() {
+		$("#current-video").slideDown();
+		$("#video").animate({"margin-top" : "-329px"}, 300, 'swing');
+		$("#current-video-minified").slideUp();
 	});
 });

@@ -1,45 +1,42 @@
-<h1>hackday fake-wiki</h1>
-<h2>written in germish language</h2>
+<% content_for :head do %>
+  <script src="arte_api.js"></script>
+  <script type="text/javascript" >
+  var currentBrdcst = {};
+  var arteCTX = new ArteContext();
+  jQuery(function($) {
+      $.extend({
+          serializeJSON: function(obj) {
+              var t = typeof(obj);
+              if(t != "object" || obj === null) {
+                  // simple data type
+                  if(t == "string") obj = '"' + obj + '"';
+                  return String(obj);
+              } else {
+                  // array or object
+                  var json = [], arr = (obj && obj.constructor == Array);
 
-<h3>javascript files</h3>
-<p>
-  javascript files path:<br />
-  - hackday/app/assets/javascripts<br />
-  werden automatisch geladen - ansonsten app/assets/javascripts/application.js editieren
-</p>
+                  $.each(obj, function(k, v) {
+                      t = typeof(v);
+                      if(t == "string") v = '"' + v + '"';
+                      else if (t == "object" & v !== null) v = $.serializeJSON(v)
+                      json.push((arr ? "" : '"' + k + '":') + String(v));
+                  });
 
-<h3>images</h3>
-<p>
-  images path<br />
-  - hackday/app/assets/images/
-</p>
-
-<hr />
-
-<h3>filesharing</h3>
-<p>
-  /share
-</p>
-
-<hr />
-
-<h3>view all <%= link_to "logs", logs_path %></h3>
-
-<hr />
-
-<ul>
-  <li>
-    <%= link_to "root", root_path %>
-  </li>
-  <li>
-    <%= link_to "home", home_path %>
-  </li>
-  <li>
-    <%= link_to "view all logs", logs_path %>
-  </li>
-</ul>
-
-
-<p>
-  have fun.
-</p>
+                  return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
+              }
+          }
+      });
+  });
+  $(document).ready( function() {
+  	$("#test").bind("click", function() {
+  		arteCTX.load(function(prev,current,next) {			
+  			$('#tarea').text("===prev:" + $.serializeJSON(prev) + 
+  							 "\\n\n\n===current:" + $.serializeJSON(current) +
+  							 "\n\n\n===next:" + $.serializeJSON(next));
+  		});
+  	});
+  });
+  </script>
+<% end %>
+<button id="test" >test</button>
+<textarea id="tarea" rows="1" cols="1"></textarea>

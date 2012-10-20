@@ -25,10 +25,10 @@
     });
     
     channel.bind('comment', function(data) {
-      console.log("hi!");
       $("<p>["+data.short_time+"] "+data.name+": "+data.body+"</p>").appendTo("#debug_window");
       $("#new_log").reset();
       $("#log_body").focus();
+      push_comment();
     });
     
   })
@@ -44,10 +44,6 @@
   function remove_member(member_id) {
     $("#member_id_" + member_id).remove();
   }
-  
-  function push_comment() {
-    
-  }
 </script>
 
 <div style="background-color: white">
@@ -59,7 +55,8 @@
 
   <%= form_for Log.new, :remote => true do |f| %>
     <p>
-      <%= f.text_field :body %>
+      <%= f.text_field :body, :autocomplete => "off" %>
+      <%= f.text_field :timestamp, :autocomplete => "off", :style => "width: 30px" %>
       <%= f.submit "Send" %>
     </p>
   <% end %>
