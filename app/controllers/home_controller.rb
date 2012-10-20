@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
-  #layout 'ui', :only => 'ui'
-
   def index
-    schedule_now_and_next_url = "http://www.arte.tv/tvhack/tvguide/epg/live/D/L3/6.json?#{Time.now.to_i}"
+    schedule_now_and_next_url = "http://www.arte.tv/tvhack/tvguide/epg/live/D/L3/10.json?#{Time.now.to_i}"
 
     schedule_now_and_next = parse_json(schedule_now_and_next_url)
     @schedule_now = schedule_now_and_next["abstractBroadcastList"][0]
@@ -21,9 +19,5 @@ class HomeController < ApplicationController
 
   def parse_json(url)
     return JSON.parse(Net::HTTP.get_response(URI.parse(url)).body)
-  end
-  
-  def ui
-    
   end
 end

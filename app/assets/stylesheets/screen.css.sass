@@ -10,12 +10,12 @@
 $orange: #ff4300
 
 ::-moz-selection
-  background: $orange
+  background: #222
   color: #fff
   text-shadow: none
 
 ::selection
-  background: $orange
+  background: #222
   color: #fff
   text-shadow: none
 
@@ -29,13 +29,6 @@ body.ui
   height: 100%
   font: 14px/1.2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif
   color: #222
-
-  .button
-    background: #222
-    color: #fff
-    float: left
-    padding: 0 12px
-    line-height: 36px
 
   img
     display: block
@@ -69,7 +62,6 @@ body.ui
       float: left
       position: relative
       z-index: 40
-      display: none
       
       img
         float: left
@@ -84,14 +76,24 @@ body.ui
       h2
         font-size: 14px
         line-height: 44px
-        margin-left: 4px
+        margin-left: 8px
         float: left
         color: #666
+        padding-top: 1px
 
-      .button
-        position: absolute
+      .button-square
+        float: right
+        width: 36px
+        height: 36px
         right: 4px
         top: 4px
+        margin: 4px 4px 0 0
+
+      #video-trigger-minified-open
+        background: #222 image-url("ui/btn-video.png")
+
+      #info-trigger-minified-open
+        background: $orange image-url("ui/btn-info.png")
 
     #current-video
       @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
@@ -111,9 +113,6 @@ body.ui
           border: 4px solid #222
           margin: 0 16px 16px 16px
           float: left
-
-        .button
-          margin: 0 0 16px 16px
 
       #description
         width: 268px
@@ -144,7 +143,7 @@ body.ui
       width: 584px
       height: 365px
       float: left
-      margin-top: -329px
+      margin-top: -323px
       z-index: 10
       position: relative
 
@@ -161,7 +160,6 @@ body.ui
       @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
       padding: 10px 20px
       float: left
-      @include box-shadow(rgba(0,0,0,.8) 0 2px 15px)
       color: $orange
       margin-bottom: 4px
 
@@ -184,6 +182,28 @@ body.ui
 
       h3
         color: #ccc
+
+    .sidebar-video-minified
+      background: #222
+      position: relative
+
+      h3
+        color: #ccc
+
+      .bookmark
+        width: 12px
+        height: 14px
+        background: image-url("ui/bookmark-default-minified.png")
+        position: absolute
+        top: 0
+        right: 6px
+        z-index: 40
+
+    .sidebar-video-minified:hover
+      @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
+
+      h3
+        color: #222
 
   #prev
     left: 0

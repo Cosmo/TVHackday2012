@@ -36,7 +36,7 @@ class LogsController < ApplicationController
       end
       if @log.save
         logger.info "awesome, #{current_user.email} tagged a video at #{@log.at}"
-        Pusher['comments'].trigger('comment', { :body => @log.body, :user_id => @log.user_id, :short_time => @log.at.strftime("%H:%M"), :name => @log.user.name })
+        Pusher['comments'].trigger('comment', { :body => @log.body, :user_id => @log.user_id, :short_time => @log.at.strftime("%H:%M"), :name => @log.user.name, :uid => @log.user.uid, :id => @log.id, :timestamp => @log.timestamp })
       end
       render json: @log, status: :created, location: @log
     else

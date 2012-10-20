@@ -1,0 +1,74 @@
+.flashContainer{
+
+	/*	Setting the container to relative positioning
+		so we can center the control div */
+
+	position:relative;
+	overflow:hidden;
+}
+
+.progressBar{
+	position:absolute;
+	width:auto;
+	height:36px;
+	left:0;
+	right:0;
+	bottom:0;
+	background-image: image-url("ui/background-progress.png");
+	background-repeat: repeat-x;
+	background-position: left center;
+	overflow:hidden;
+	cursor:pointer;
+	
+	/* A light CSS3 bottom highlight */
+	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, 0.3);
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, 0.3);
+	box-shadow:0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.progressBar .elapsed{
+	position:absolute;
+	width:0;
+	height:100%;
+	border-right: 1px solid #FF4300;
+	background-image: image-url("ui/background-progress-elapsed.png");
+}
+
+.controlDiv{
+	/* Centering the control div */
+	position:absolute;
+	width:120px;
+	height:120px;
+	cursor:pointer;
+	top:50%;
+	left:50%;
+	margin:-60px 0 0 -60px;
+}
+
+.controlDiv.play{ background:image-url('ui/play.png') no-repeat center center; }
+.controlDiv.replay{ background:image-url('ui/replay.png') no-repeat center center; }
+.controlDiv.pause{ background:image-url('ui/pause.png') no-repeat -99999px; }
+.flashContainer:hover .controlDiv.pause{ background-position: center center; }
+.flashContainer.playing .progressBar{ display:block; }
+
+.comment{
+	position:absolute;
+	width:9px;
+	height:36px;
+	left:0;
+	right:0;
+	bottom:0;
+	overflow:hidden;
+	cursor:pointer;
+    z-index: 1000000;
+}
+.comment.me {
+  background:image-url('ui/stamp-me.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+.comment.notme {
+  background:image-url('ui/stamp-notme.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
