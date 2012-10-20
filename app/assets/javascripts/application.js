@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+jQuery.fn.reset = function () {
+  $(this).each (function() { this.reset(); });
+}

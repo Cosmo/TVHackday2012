@@ -5,41 +5,10 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body class="ui">
-	<div id="container">
-		<div id="prev">
-			Sendung verpasst?
-			<%= image_tag("ui/missed-video.jpg") %>
-			2.11.12
-		</div>
-		<div id="current">
-			<div id="current-video">
-				<%= image_tag("ui/teaser-video.jpg") %>
-				<div id="description">
-					<div id="nowon">Jetzt läuft</div>
-					<h1>Breaking Bad</h1>
-					<h2>
-						<strong>Folge 7</strong> Lilly of the Valley
-					</h2>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.
-					</p>
-					<p>
-						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div id="next">
-			Vorschau Nächste Woche
-			<%= image_tag("ui/preview-video.jpg") %>
-			2.11.12
-		</div>
-	</div>
-
 
   <%= yield %>
 

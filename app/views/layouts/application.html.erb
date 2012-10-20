@@ -4,8 +4,14 @@
   <title>Hackday</title>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script src="http://js.pusher.com/1.12/pusher.min.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
-<body>
+<body class="ui">
   
   <% flash.each do |name, message| %>
     <% message_type = (name == :notice ? "success" : name) %>
@@ -13,10 +19,6 @@
       <%= message.html_safe %>
     </div>
   <% end %>
-  
-  <%= yield %>
-  
-  <hr />
   
   <p>
     <% if current_user.present? %>
@@ -27,17 +29,7 @@
     <% end %>
   </p>
   
-  <ul>
-    <li>
-      <%= link_to "root", root_path %>
-    </li>
-    <li>
-      <%= link_to "home", home_path %>
-    </li>
-    <li>
-      <%= link_to "view all logs", logs_path %>
-    </li>
-  </ul>
-
+  <%= yield %>
+  
 </body>
 </html>

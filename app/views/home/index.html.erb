@@ -1,8 +1,45 @@
-Previous:
-<%= @schedule_previous %>
-<br />
-Now:
-<%= @schedule_now["TIT"] =%>
-<br />
-Next:
-<%= @schedule_next["TIT"] =%>
+<div id="container">
+  <div id="prev" class="sidebar">
+    <a href="#" class="sidebar-video">
+      <div class="sidebar-title">Sendung verpasst?</div>
+      <%= image_tag @schedule_previous["VDO"] ? @schedule_previous["VDO"]["VTU"]["IUR"] : "", :size => "176x117" %>
+      <h3><%= @schedule_previous["TIT"] %></h3>
+      <% if @schedule_previous["AP7"] %>
+        <%= link_to "Arte+7", @schedule_previous["VDO"]["VTR"] %>
+      <% end %>
+    </a>
+  </div>
+
+  <div id="current">
+    <div id="video">
+      <%= image_tag("ui/video.png") %>
+      <a href="#" id="video-trigger" class="button">
+        Video jetzt anschauen
+      </a>
+    </div>
+    <div id="current-video">
+      <div id="teaser-button">
+        <%= image_tag @schedule_now["VDO"] ? @schedule_now["VDO"]["VTU"]["IUR"] : "", :size => "260x160" %>
+      </div>
+      <div id="description">
+        <div id="nowon">Jetzt läuft:</div>
+        <h1><%= @schedule_now["DSS"] ? @schedule_now["DSS"] : @schedule_now["DTE"] %></h1>
+        <h2>
+          20:15 - 22:15 Uhr
+        </h2>
+        <p>
+          Die Produkte der Firma Apple, seien es Computer oder Telefone, vermitteln den Käufern beziehungsweise Nutzern eine bestimmte Lebensart und die Zugehörigkeit zu einer besonderen - oft auch als elitär bezeichneten - Gruppe der Gesellschaft, die äußerst anziehend wirkt.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="next" class="sidebar">
+    <a href="#" class="sidebar-video">
+      <div class="sidebar-title">Nächste Sendung:</div>
+      <%= image_tag(@schedule_next["VDO"] ? @schedule_next["VDO"]["VTU"]["IUR"] : "", :size => "176x117") %>
+      <h3><%= @schedule_next["TIT"] %></h3>
+      <%= @schedule_next["BAT"] ? "#{@schedule_next["BAT"]} Uhr" : "" %>
+    </a>
+  </div>
+</div>

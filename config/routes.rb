@@ -12,6 +12,8 @@ Hackday::Application.routes.draw do
   match 'signup' => 'users#new'
   match 'home' => 'home#index'
   match 'ui' => 'home#ui'
+  match 'chat' => 'chat#index'
+  match 'pusher/auth' => 'pusher#auth'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

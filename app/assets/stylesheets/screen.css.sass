@@ -7,55 +7,81 @@
 @import compass/reset
 @import compass/css3
 
+$orange: #ff4300
+
+html
+  width: 100%
+  height: 100%
+
 body.ui
   background: #444
   width: 100%
   height: 100%
   font: 14px/1.2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif
+  color: #000
 
   img
-    dipslay: block
+    display: block
 
   a
     text-decoration: none
+    color: #000
 
   #container
     width: 1024px
-    min-height: 768px
+    height: 100%
     position: relative
     left: 50%
     margin-left: -512px
 
-  #prev
-    width: 220px
-    position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-
   #current
     width: 584px
     position: absolute
-    top: 0
+    height: 100%
     left: 220px
-    bottom: 0
     @include box-shadow(rgba(0,0,0,.8) 0 4px 20px)
     z-index: 20
+    overflow: hidden
+
+    #video
+      width: 584px
+      height: 365px
+      position: absolute
+      top: -365px
+      left: 0
+      z-index: 30
+
+      .button
+        background: #222
+        color: #fff
+        float: left
+        padding: 0 12px
+        line-height: 36px
+        margin-left: 16px
 
     #current-video
-      @include background-image(linear-gradient(#F5C200, #B07F00))
-      min-height: 240px
+      @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
+      @include box-shadow(rgba(0,0,0,.8) 0 2px 15px)
+      width: 100%
+      float: left
 
-      img
-        border: 4px solid #222
-        margin: 16px
+      #teaser-button
+        width: 300px
         float: left
+
+        img
+          border: 4px solid #222
+          margin: 52px 16px 16px 16px
+          float: left
 
       #description
         width: 268px
-        margin-top: 16px
         float: left
-        @include single-text-shadow(0, 1px, 0, false, rgba(255,255,255,.3))
+        margin-top: 50px
+        @include single-text-shadow(0, 1px, 0, false, rgba(255,255,255,.6))
+
+        #nowon
+          color: $orange
 
         h1
           font-size: 28px
@@ -74,9 +100,43 @@ body.ui
           strong
             font-weight: bold
 
-  #next
+  .sidebar
     width: 220px
     position: absolute
     top: 0
+    height: 100%
+    background: #333
+
+    .sidebar-video
+      width: 180px
+      @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
+      padding: 0 20px 10px 20px
+      float: left
+
+      .sidebar-title
+        float: left
+        margin-top: 10px
+        margin-bottom: 4px
+        font-weight: bold
+        color: $orange
+
+      img
+        border: 2px solid #222
+
+      h3
+        margin-top: 4px
+        font-weight: bold
+
+    .sidebar-video:hover
+      background: #222
+      color: #ccc
+
+      img
+        border-color: #ccc
+
+  #prev
+    left: 0
+
+  #next
     right: 0
-    bottom: 0
+
