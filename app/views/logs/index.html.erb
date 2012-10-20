@@ -10,3 +10,9 @@
     </dd>
   <% end %>
 </dl>
+
+<% if logged_in? %>
+  <p>
+    <%= link_to 'new log', new_log_path %>
+  </p>
+<% end %>

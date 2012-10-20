@@ -11,6 +11,7 @@ Hackday::Application.routes.draw do
   match 'logout' => 'sessions#destroy'
   match 'signup' => 'users#new'
   match 'home' => 'home#index'
+  match 'ui' => 'home#ui'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

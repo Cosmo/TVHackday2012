@@ -1,0 +1,13 @@
+<%= form_for @log do |f| %>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.label :at %>
+    <%= f.datetime_select :at %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

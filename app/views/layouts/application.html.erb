@@ -2,12 +2,22 @@
 <html>
 <head>
   <title>Hackday</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  
+  <% flash.each do |name, message| %>
+    <% message_type = (name == :notice ? "success" : name) %>
+    <div>
+      <%= message.html_safe %>
+    </div>
+  <% end %>
+  
+  <%= yield %>
+  
+  <hr />
+  
   <p>
     <% if current_user.present? %>
       User:
@@ -16,11 +26,13 @@
       <%= link_to 'login', login_path %>
     <% end %>
   </p>
-  <%= yield %>
   
   <ul>
     <li>
-      <%= link_to "home", root_path %>
+      <%= link_to "root", root_path %>
+    </li>
+    <li>
+      <%= link_to "home", home_path %>
     </li>
     <li>
       <%= link_to "view all logs", logs_path %>

@@ -1,3 +1,5 @@
+require 'net/http'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
   # force_ssl
@@ -9,4 +11,10 @@ class ApplicationController < ActionController::Base
   end
   
   helper_method :current_user
+  
+  def logged_in?
+    current_user.present? ? true : false
+  end
+  helper_method :logged_in?
+  
 end
