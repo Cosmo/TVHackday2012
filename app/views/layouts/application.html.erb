@@ -8,7 +8,24 @@
 </head>
 <body>
 
-<%= yield %>
+  <p>
+    <% if current_user.present? %>
+      User:
+      logged in as: <%= current_user.email %>, <%= link_to 'logout', logout_path %>
+    <% else %>
+      <%= link_to 'login', login_path %>
+    <% end %>
+  </p>
+  <%= yield %>
+  
+  <ul>
+    <li>
+      <%= link_to "home", root_path %>
+    </li>
+    <li>
+      <%= link_to "view all logs", logs_path %>
+    </li>
+  </ul>
 
 </body>
 </html>

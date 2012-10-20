@@ -1,0 +1,12 @@
+<h1>All logs</h1>
+
+<dl>
+  <% @logs.each do |log| %>
+    <dt>
+      <%= log.user.email %> wrote at <%= log.at %>
+    </dt>
+    <dd>
+      <%= log.body %>
+    </dd>
+  <% end %>
+</dl>
