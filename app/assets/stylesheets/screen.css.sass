@@ -196,39 +196,76 @@ body.ui
 
     #comment-entries
       float: left
+      width: 324px
+      margin-top: 20px
 
       .comment-entry
         float: left
-        width: 564px
+        width: 100%
         margin-left: 20px
         margin-bottom: 10px
+        background: red
 
         .image
           width: 50px
           height: 50px
           background: #fff
           float: left
-          @include border-radius(25px)
           @include box-shadow(rgba(0,0,0,.8) 0 2px 8px)
 
           img
-            width: 44px
-            height: 44px
+            width: 46px
+            height: 46px
             float: left
-            margin: 3px
-            @include border-radius(22px)
+            margin: 2px 16px 2px 2px
+
+        .bubble
+          @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
+          width: 20px
+          float: left
+          background: yellow
+
+          .name
+            color: #fff
+            float: left
+            margin: 8px 0 0 12px
+  
+          .message
+            color: #222
+            float: left
+            margin: 0 0 0 12px
+
+    #members
+      float: left
+      width: 160px
+      background: #222
+      padding: 10px 20px
+      margin-top: 4px
+
+      p
+        color: #fff
+        margin-bottom: 10px
+
+      li
+        float: left
+        margin-bottom: 10px
+
+        .time
 
         .name
-          color: #fff
-          float: left
-          margin: 8px 0 0 12px
-          width: 486px
 
-        .message
-          color: #222
+        .profile
+          width: 50px
+          height: 50px
+          background: #fff
           float: left
-          margin: 0 0 0 12px  
-          width: 486px  
+          @include box-shadow(rgba(0,0,0,.8) 0 2px 8px)
+
+          img
+            width: 46px
+            height: 46px
+            float: left
+            margin: 2px
 
   #column_left
     width: 220px
@@ -254,6 +291,24 @@ body.ui
     z-index: 0
     overflow: hidden
 
+    .bookmark
+      width: 12px
+      height: 14px
+      background: image-url("ui/bookmark-default-minified.png")
+      position: absolute
+      top: 0
+      right: 6px
+      z-index: 40
+
+    .arte7
+      width: 29px
+      height: 11px
+      background: image-url("ui/arte7.png")
+      position: absolute
+      bottom: 6px
+      right: 6px
+      z-index: 40
+
     .sidebar-video
       width: 180px
       @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
@@ -261,15 +316,7 @@ body.ui
       float: left
       color: $orange
       margin-bottom: 4px
-
-      .arte7
-        width: 12px
-        height: 12px
-        background: image-url("ui/arte7.png")
-        position: absolute
-        top: 157px
-        left: 5px
-        z-index: 40
+      position: relative
 
       .sidebar-title
         margin-bottom: 4px
@@ -299,24 +346,6 @@ body.ui
 
       h3
         color: #ccc
-
-      .bookmark
-        width: 12px
-        height: 14px
-        background: image-url("ui/bookmark-default-minified.png")
-        position: absolute
-        top: 0
-        right: 10px
-        z-index: 40
-
-      .arte7
-        width: 29px
-        height: 11px
-        background: image-url("ui/arte7.png")
-        position: absolute
-        top: 0
-        left: 0
-        z-index: 40
 
     .sidebar-video-minified:hover
       @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
@@ -383,6 +412,6 @@ body.ui
         @include border-radius(18px)
         float: right
         background: #3B5998
-        display: inline-block
         border: none
+        font-size: 12px
         margin: 9px 9px 9px 0
