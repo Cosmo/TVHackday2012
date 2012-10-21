@@ -45,9 +45,11 @@
 	margin:-60px 0 0 -60px;
 }
 
+/*
 .controlDiv.play{ background:image-url('ui/play.png') no-repeat center center; }
-.controlDiv.replay{ background:image-url('ui/replay.png') no-repeat center center; }
 .controlDiv.pause{ background:image-url('ui/pause.png') no-repeat -99999px; }
+*/
+.controlDiv.replay{ background:image-url('ui/replay.png') no-repeat center center; }
 .flashContainer:hover .controlDiv.pause{ background-position: center center; }
 .flashContainer.playing .progressBar{ display:block; }
 

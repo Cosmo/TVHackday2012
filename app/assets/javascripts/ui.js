@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$("#count").hide();
+
 	$("#video-trigger-minified").click(function() {
 		if($("#video").css("margin-top") === "-323px"){
 			$("#video").animate({"margin-top" : "0"}, 300, 'swing');

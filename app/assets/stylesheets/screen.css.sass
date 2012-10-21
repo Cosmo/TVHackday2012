@@ -129,6 +129,16 @@ body.ui
         height: 36px
         float: right
 
+      #login
+        height: 36px
+        line-height: 36px
+        color: #fff
+        background: $orange
+        width: 80px
+        text-align: center
+        float: right
+        margin: 4px 4px 4px 0
+
     #infocard
       @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
       padding-top: 20px
@@ -177,11 +187,12 @@ body.ui
 
     #video
       width: 584px
-      height: 365px
+      height: 359px
       float: left
       margin-top: -323px
       z-index: 5
       position: relative
+      margin-bottom: 4px
 
     #comment-entries
       float: left
@@ -230,10 +241,10 @@ body.ui
         color: #222
 
     .sidebar-video-minified:hover
-      background: #222
+      @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
 
       h3
-        color: #fff
+        color: #222
 
   #column_right
     width: 220px
@@ -250,6 +261,15 @@ body.ui
       float: left
       color: $orange
       margin-bottom: 4px
+
+      .arte7
+        width: 12px
+        height: 12px
+        background: image-url("ui/arte7.png")
+        position: absolute
+        top: 157px
+        left: 5px
+        z-index: 40
 
       .sidebar-title
         margin-bottom: 4px
@@ -290,12 +310,12 @@ body.ui
         z-index: 40
 
       .arte7
-        width: 12px
-        height: 12px
+        width: 29px
+        height: 11px
         background: image-url("ui/arte7.png")
         position: absolute
-        top: 16px
-        right: 10px
+        top: 0
+        left: 0
         z-index: 40
 
     .sidebar-video-minified:hover
@@ -355,13 +375,14 @@ body.ui
         border: none
         margin: 9px 9px 9px 0
 
-    #login
-      position: absolute
-      top: 0
-      right: 0
-      height: 44px
-      line-height: 44px
-      color: #fff
-      background: $orange
-      width: 80px
-      text-align: center
+      #share_comment
+        height: 26px
+        line-height: 26px
+        padding: 0 12px
+        color: #fff
+        @include border-radius(18px)
+        float: right
+        background: #3B5998
+        display: inline-block
+        border: none
+        margin: 9px 9px 9px 0

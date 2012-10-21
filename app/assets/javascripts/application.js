@@ -25,15 +25,17 @@ jQuery.fn.reset = function () {
   $(this).each (function() { this.reset(); });
 }
 
+// please don't kill me. i was tired... :|
 var gobal_time_channel;
+var gobal_uid;
 
 $(function() {
   
   var socket            = new Pusher('9b398a15a5cdeb082e7d');
   var presence_channel  = socket.subscribe('presence-channel');
   var channel           = socket.subscribe('comments');
-  var time              = socket.subscribe('client-time');
-  gobal_time_channel = time;
+  var time              = socket.subscribe('presence-times');
+  gobal_time_channel    = time;
 
   presence_channel.bind('pusher:subscription_succeeded', function(members) {
     update_member_count(presence_channel.members.count);
@@ -57,8 +59,8 @@ $(function() {
     pushComment({ id: data.id, uid: data.uid, name: data.name, body: data.body, timestamp: data.timestamp, user_id: data.user_id });
   });
   
-  channel.bind('client-time', function(data) {
-    $("#member_id_1" + " .time").text(data.timestamp);
+  time.bind('client-time', function(data) {
+    $("#member_id_" + data.user_id + " .time").text(data.timestamp);
   });
   
   function update_member_count(count) {

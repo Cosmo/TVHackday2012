@@ -163,8 +163,12 @@
 										timestamp = elements.player.getCurrentTime();
 										populateComments(timestamp);
 										
-										var triggered = gobal_time_channel.trigger("client-time", { timestamp: timestamp });
-										console.log(triggered);
+										
+										user_id = $("body").attr("data-current-id");
+										
+										$("#member_id_" + user_id + " .time").text(timestamp);
+										
+										var triggered = gobal_time_channel.trigger("client-time", { timestamp: timestamp, user_id: user_id });
 										
 									},1000);
 								}
