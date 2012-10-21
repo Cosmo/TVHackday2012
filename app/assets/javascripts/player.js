@@ -38,7 +38,7 @@
           $(element).attr("data-name")+
           '</span><span class="message">' + 
           $(element).attr("data-text") +
-          '</span></span></div>').appendTo(entries);
+          '</span></span></div>').prependTo(entries);
         }
       }
       

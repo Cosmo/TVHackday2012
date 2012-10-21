@@ -7,11 +7,11 @@ $(document).ready(function(){
 			$("#infocard").slideUp(400);
 			$("#video-trigger-minified").css({"background-color" : "#ff4300"});
 			$("#info-trigger-minified").css({"background-color" : "#222"});
-      $("object").get(0).playVideo();
+      // $("object").get(0).playVideo();
 		} else {
 			$("#video").animate({"margin-top" : "-323px"}, 300, 'swing');
 			$("#video-trigger-minified").css({"background-color" : "#222"});
-      $("object").get(0).pauseVideo();
+      // $("object").get(0).pauseVideo();
 		}
 	});
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
 		$("#infocard").slideUp(400);
 		$("#video-trigger-minified").css({"background-color" : "#ff4300"});
 		$("#info-trigger-minified").css({"background-color" : "#222"});
-		$("object").get(0).playVideo();
+		// $("object").get(0).playVideo();
 	});
 
 	$("#info-trigger-minified").click(function() {
@@ -33,6 +33,6 @@ $(document).ready(function(){
 			$("#infocard").slideUp('fast');
 			$("#info-trigger-minified").css({"background-color" : "#222"});
 		}
-		$("object").get(0).pauseVideo();
+		// $("object").get(0).pauseVideo();
 	});
 });
