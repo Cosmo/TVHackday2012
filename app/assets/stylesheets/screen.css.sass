@@ -280,17 +280,57 @@ body.ui
         color: #222
 
   #footer
-    width: 1024px
+    width: 584px
     height: 44px
     position: absolute
+    left: 220px
     bottom: 0
-    z-index: 1
+    z-index: 2
+
+    #comment_form
+      
+      input
+        float: left
+        height: 44px
+        line-height: 44px
+        width: 300px
+        padding: 0
+        margin: 0
+        border: none
+        padding-left: 12px
+        font-size: 14px
+        color: #888
+        @include border-radius(0)
+
+      #stamp_comment
+        height: 26px
+        width: 26px
+        @include border-radius(18px)
+        float: left
+        background: #444
+        display: inline-block
+        border: none
+        margin: 9px
+
+      #send_comment
+        height: 26px
+        line-height: 26px
+        padding: 0 12px
+        color: #fff
+        @include border-radius(18px)
+        float: left
+        background: $orange
+        display: inline-block
+        border: none
+        margin: 9px 9px 9px 0
 
     #login
+      position: absolute
+      top: 0
+      right: 0
       height: 44px
-      width: 220px
       line-height: 44px
-      text-indent: 16px
-      background: $orange
       color: #fff
-      float: left
+      background: $orange
+      padding: 0 14px
+      float: right
