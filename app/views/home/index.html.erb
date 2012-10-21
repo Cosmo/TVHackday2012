@@ -1,7 +1,13 @@
 <div id="container">
   <div id="wrapper">
-    <div id="column_left" class="column">
-      tst
+    <div id="background-center"></div>
+    <div id="column_left" class="column sidebar">
+      <a href="#" class="sidebar-video">
+        <div class="sidebar-title">Sendung verpasst?</div>
+        <% previous_image_path = (@schedule_previous["IMG"] ? @schedule_previous["IMG"]["IUR"] : "ui/default.png") %>
+        <div class="sidebar-image" style="background-image: url(<%= image_path(previous_image_path) %>); background-size: cover; width: 176px; height: 117px"></div>
+        <h3><%= @schedule_previous["TIT"] %></h3>
+      </a>
     </div>
     <div id="column_center" class="column">
       <div id="video-minified">
@@ -44,18 +50,31 @@
       </div>
     
       <ul id="members"></ul>
-    
-      <div id="fake_form">
-        <input type="text" name="log_body" value="" id="log_body" autocomplete="off" />
-        <button id="send_comment">Send</button>
-      </div>
     </div>
     
-    <div id="column_right" class="column">
-      tst
+    <div id="column_right" class="column sidebar">
+      <a href="#" class="sidebar-video">
+        <div class="sidebar-title">Nächste Sendungen:</div>
+        <% next_image_path = (@schedule_next[1]["IMG"] ? @schedule_next[1]["IMG"]["IUR"] : "ui/default.png") %>
+        <div class="sidebar-image" style="background-image: url(<%= image_path(next_image_path) %>); background-size: cover; width: 176px; height: 117px"></div>
+        <%= @schedule_next[1]["BAT"] ? "#{@schedule_next[1]["BAT"]} Uhr" : "" %>
+        <h3><%= @schedule_next[1]["TIT"] %></h3>
+      </a>
+      
+      <% @schedule_next.drop(2).each do |schedule_after_next| %>
+        <a href="#" class="sidebar-video sidebar-video-minified">
+          <div class="bookmark"></div>
+          <%= schedule_after_next["BAT"] ? "#{schedule_after_next["BAT"]} Uhr" : "" %>
+          <h3><%= schedule_after_next["TIT"] %></h3>
+        </a>
+      <% end %>
     </div>
   </div>
   <div id="footer">
-
+      <%= link_to "Login", login_path, id: "login" %>
+      <div id="comment_form">
+        <input type="text" name="log_body" value="" id="log_body" autocomplete="off" />
+        <button id="send_comment">Send</button>
+      </div>
   </div>
 </div>

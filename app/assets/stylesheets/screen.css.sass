@@ -42,9 +42,20 @@ body.ui
     width: 1024px
     min-height: 100%
     position: relative
+    float: left
     left: 50%
     margin-left: -512px
     z-index: 0
+    background: #333
+    @include box-shadow(rgba(0,0,0,.8) 0 0 20px)
+
+  #background-center
+    background: #444
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 584px
+    margin: 0 220px
 
   #wrapper
     width: 100%
@@ -175,49 +186,48 @@ body.ui
       z-index: 5
       position: relative
 
+    #comment-entries
+      float: left
+
+      .comment-entry
+        float: left
+        width: 564px
+        margin-left: 20px
+        margin-bottom: 10px
+
+        .image
+          width: 50px
+          height: 50px
+          background: #fff
+          float: left
+          @include border-radius(25px)
+          @include box-shadow(rgba(0,0,0,.8) 0 2px 8px)
+
+          img
+            width: 44px
+            height: 44px
+            float: left
+            margin: 3px
+            @include border-radius(22px)
+
+        .name
+          color: #fff
+          float: left
+          margin: 8px 0 0 12px
+          width: 486px
+
+        .message
+          color: #222
+          float: left
+          margin: 0 0 0 12px  
+          width: 486px  
+
   #column_right
     width: 220px
 
-  #footer
-    width: 1024px
-    height: 44px
-    position: absolute
-    bottom: 0
-    z-index: 1
-
-
-
-
-
-
-
-
-   
-
-    #current-video
-      @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
-      padding-top: 20px
-      width: 100%
-      float: left
-      z-index: 20
-      position: relative
-      overflow: hidden
-
-
-    .button
-      float: left
-      color: #fff
-      background: $orange
-      margin: 0 16px 16px 16px
-      padding: 6px 10px
-
   .sidebar
-    width: 220px
-    position: absolute
-    top: 0
-    height: 100%
-    background: #333
-    overflow: hidden
+    position: relative
+    z-index: 0
 
     .sidebar-video
       width: 180px
@@ -269,21 +279,18 @@ body.ui
       h3
         color: #222
 
-  #prev
-    left: 0
+  #footer
+    width: 1024px
+    height: 44px
+    position: absolute
+    bottom: 0
+    z-index: 1
 
     #login
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 220px
       height: 44px
-      background: $orange
+      width: 220px
       line-height: 44px
-
-      a
-        color: #fff
-        margin-left: 20px
-
-  #next
-    right: 0
+      text-indent: 16px
+      background: $orange
+      color: #fff
+      float: left
