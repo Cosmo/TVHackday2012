@@ -41,6 +41,7 @@ class LogsController < ApplicationController
       render json: @log, status: :created, location: @log
     else
       flash[:notice] = 'not logged in!'
+      logger.info "something went wrong :( #{current_user.to_json}"
       redirect_to new_log_path
     end
   end

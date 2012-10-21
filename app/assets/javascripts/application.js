@@ -26,8 +26,6 @@ jQuery.fn.reset = function () {
 }
 
 $(function() {
-  // Set focus on message field
-  $("#log_body").focus();
   
   var socket            = new Pusher('9b398a15a5cdeb082e7d');
   var presence_channel  = socket.subscribe('presence-channel');
@@ -51,9 +49,7 @@ $(function() {
   });
   
   channel.bind('comment', function(data) {
-    $("<p>["+data.short_time+"] "+data.name+": "+data.body+"</p>").appendTo("#comment-entries");
-    $("#log_body").val("");
-    $("#log_body").focus();
+    $("<p>["+data.short_time+"] "+data.name+": "+data.body+"</p>").appendTo("#debug-entries");
     pushComment({ id: data.id, uid: data.uid, name: data.name, body: data.body, timestamp: data.timestamp, user_id: data.user_id });
   });
   
@@ -75,6 +71,9 @@ $(function() {
     
     send_data = { log: { timestamp: timestamp, body: message } };
     $.ajax({ type: "POST", url: "/logs", data: send_data, success: function(data, textStatus, jqXHR) { } });
+    
+    $("#log_body").val("");
+    $("#log_body").focus();
     
     
     

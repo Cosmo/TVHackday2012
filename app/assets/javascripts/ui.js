@@ -11,6 +11,13 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#video-trigger").click(function() {
+		$("#video").animate({"margin-top" : "0"}, 300, 'swing');
+		$("#current-video").slideUp(400);
+		$("#video-trigger-minified-open").css({"background-color" : "#ff4300"});
+		$("#info-trigger-minified-open").css({"background-color" : "#222"});
+	});
+
 	$("#info-trigger-minified-open").click(function() {
 		if($("#current-video").is(":hidden")){
 			$("#current-video").slideDown('fast');

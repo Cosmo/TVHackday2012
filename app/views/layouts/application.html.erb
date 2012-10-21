@@ -10,6 +10,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ui/apple-touch-icon-72x72.png" />
   <%= yield(:head) %>
 </head>
 <%
@@ -27,15 +28,6 @@ end
       <%= message.html_safe %>
     </div>
   <% end %>
-  
-  <p>
-    <% if current_user.present? %>
-      User:
-      logged in as: <%= current_user.email %>, <%= link_to 'logout', logout_path %>
-    <% else %>
-      <%= link_to 'login', login_path %>
-    <% end %>
-  </p>
   
   <%= yield %>
   

@@ -25,7 +25,8 @@
 			player		: null,	// The flash player
 			progress	: null,	// Progress bar
 			elapsed     : null,	// The light blue elapsed bar
-			onProgressBarAdded: settings.onProgressBarAdded // handler that gets executed once UI is ready
+			onProgressBarAdded: settings.onProgressBarAdded, // handler that gets executed once UI is ready
+			onJump: settings.onJump
 		};
 
 		try{	
@@ -124,6 +125,9 @@
 					
 					elements.elapsed.width(ratio*100+'%');
 					elements.player.seekTo(Math.round(data.duration*ratio), true);
+					
+					elements.onJump(elements.player.getCurrentTime());
+					
 					return false;
 				});
 
