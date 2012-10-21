@@ -34,7 +34,7 @@
           $('<div class="comment-entry" id="comment_'+comment_id +'">'+
           '<span class="image"><img src="https://graph.facebook.com/' +
           $(element).attr("data-uid") +
-          '/picture/" style="float:left; margin-right:5px;" /></span><span class"bubble"><span class="name">'+
+          '/picture/" style="float:left; margin-right:5px;" /></span><span class="bubble"><span class="name">'+
           $(element).attr("data-name")+
           '</span><span class="message">' + 
           $(element).attr("data-text") +

@@ -196,15 +196,15 @@ body.ui
 
     #comment-entries
       float: left
-      width: 324px
-      margin-top: 20px
+      width: 364px
+      margin-top: 10px
+      margin-right: 20px
 
       .comment-entry
         float: left
-        width: 100%
         margin-left: 20px
         margin-bottom: 10px
-        background: red
+        width: 344px
 
         .image
           width: 50px
@@ -212,6 +212,7 @@ body.ui
           background: #fff
           float: left
           @include box-shadow(rgba(0,0,0,.8) 0 2px 8px)
+          margin-right: 10px
 
           img
             width: 46px
@@ -220,27 +221,41 @@ body.ui
             margin: 2px 16px 2px 2px
 
         .bubble
-          @include background-image(linear-gradient(#f6f6f6, #c8c8c8))
-          width: 20px
+          width: 264px
           float: left
-          background: yellow
+          background: #333
+          color: #fff
+          padding: 10px
+          position: relative
 
           .name
-            color: #fff
             float: left
-            margin: 8px 0 0 12px
+            color: $orange
+            width: 244px
   
           .message
-            color: #222
             float: left
-            margin: 0 0 0 12px
+            width: 244px
+
+        .bubble::after
+          content: ""
+          display: block
+          width: 0
+          height: 0
+          position: absolute
+          left: -6px
+          top: 0
+          border-top: 8px solid transparent
+          border-bottom: 8px solid transparent
+          border-right: 6px solid #333
+          margin: 17px 0
 
     #members
       float: left
       width: 160px
-      background: #222
+      background: #333
       padding: 10px 20px
-      margin-top: 4px
+      margin-top: 10px
 
       p
         color: #fff
@@ -248,24 +263,37 @@ body.ui
 
       li
         float: left
-        margin-bottom: 10px
+        margin-bottom: 0
+        width: 160px
+        height: 70px
+        position: relative
 
         .time
+          color: $orange
+          position: absolute
+          top: 24px
+          left: 62px
 
         .name
+          color: #fff
+          position: absolute
+          top: 6px
+          left: 62px
 
         .profile
           width: 50px
           height: 50px
           background: #fff
-          float: left
+          position: absolute
+          top: 10px
+          left: 0px
           @include box-shadow(rgba(0,0,0,.8) 0 2px 8px)
 
           img
             width: 46px
             height: 46px
-            float: left
             margin: 2px
+            float: left
 
   #column_left
     width: 220px
