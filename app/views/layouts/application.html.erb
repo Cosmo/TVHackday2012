@@ -11,32 +11,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ui/apple-touch-icon-72x72.png" />
+  
+  <meta property="og:title" content="TV Hackday 2012" />
+  <meta property="og:description" content="ROFL! Die Hasen-Stelle ist …" />
+  <meta property="og:image" content="https://tivipeek.blob.core.windows.net/public/share_preview.png" />
+  <meta property="og:url" content="http://www.tivipeek.com/hackday2012/" />
+  <link rel="image_src" type="image/png" href="https://tivipeek.blob.core.windows.net/public/share_preview.png" />
+  
   <%= yield(:head) %>
-  
-  <div id="fb-root"></div>
-  <script>
-    window.fbAsyncInit = function() {
-      // init the FB JS SDK
-      FB.init({
-        appId      : '415557498509876', // App ID from the App Dashboard
-        channelUrl : 'http://tvhackday.de/channel.html', // Channel File for x-domain communication
-        status     : true, // check the login status upon init?
-        cookie     : true, // set sessions cookies to allow your server to access the session?
-        xfbml      : true  // parse XFBML tags on this page?
-      });
-
-    };
-
-    // Load the SDK's source Asynchronously
-    (function(d){
-       var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement('script'); js.id = id; js.async = true;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       ref.parentNode.insertBefore(js, ref);
-     }(document));
-  </script>
-  
 </head>
 <%
 if logged_in?

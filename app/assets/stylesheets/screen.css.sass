@@ -59,7 +59,7 @@ body.ui
 
   #wrapper
     width: 100%
-    padding-bottom: 44px
+    // padding-bottom: 44px
     overflow: hidden
     float: left
 
@@ -78,9 +78,6 @@ body.ui
     float: left
     position: relative
     z-index: 2
-
-  #column_left
-    width: 220px
 
   #column_center
     width: 584px
@@ -222,12 +219,29 @@ body.ui
           margin: 0 0 0 12px  
           width: 486px  
 
+  #column_left
+    width: 220px
+
+    .sidebar-video-minified
+      background: #444
+      position: relative
+
+      h3
+        color: #222
+
+    .sidebar-video-minified:hover
+      background: #222
+
+      h3
+        color: #fff
+
   #column_right
     width: 220px
 
   .sidebar
     position: relative
     z-index: 0
+    overflow: hidden
 
     .sidebar-video
       width: 180px
@@ -260,6 +274,8 @@ body.ui
     .sidebar-video-minified
       background: #222
       position: relative
+      width: 170px
+      padding: 10px 30px 10px 20px
 
       h3
         color: #ccc
@@ -270,7 +286,16 @@ body.ui
         background: image-url("ui/bookmark-default-minified.png")
         position: absolute
         top: 0
-        right: 6px
+        right: 10px
+        z-index: 40
+
+      .arte7
+        width: 12px
+        height: 12px
+        background: image-url("ui/arte7.png")
+        position: absolute
+        top: 16px
+        right: 10px
         z-index: 40
 
     .sidebar-video-minified:hover
@@ -286,6 +311,12 @@ body.ui
     left: 220px
     bottom: 0
     z-index: 2
+
+  #footer-inside
+    width: 584px
+    height: 44px
+    float: left
+    position: relative
 
     #comment_form
       
@@ -307,10 +338,10 @@ body.ui
         width: 26px
         @include border-radius(18px)
         float: left
-        background: #444
         display: inline-block
         border: none
         margin: 9px
+        background: #444 image-url("ui/btn-stamp-default.png")
 
       #send_comment
         height: 26px
@@ -332,5 +363,5 @@ body.ui
       line-height: 44px
       color: #fff
       background: $orange
-      padding: 0 14px
-      float: right
+      width: 80px
+      text-align: center

@@ -4,10 +4,20 @@
     <div id="column_left" class="column sidebar">
       <a href="#" class="sidebar-video">
         <div class="sidebar-title">Sendung verpasst?</div>
-        <% previous_image_path = (@schedule_previous["IMG"] ? @schedule_previous["IMG"]["IUR"] : "ui/default.png") %>
+        <% previous_image_path = (@schedule_previous[0]["IMG"] ? @schedule_previous[0]["IMG"]["IUR"] : "ui/default.png") %>
         <div class="sidebar-image" style="background-image: url(<%= image_path(previous_image_path) %>); background-size: cover; width: 176px; height: 117px"></div>
-        <h3><%= @schedule_previous["TIT"] %></h3>
+        <%= @schedule_previous[0]["BAT"] ? "#{@schedule_previous[0]["BAT"]} Uhr" : "" %>
+        <h3><%= @schedule_previous[0]["TIT"] %></h3>
       </a>
+      
+      <% @schedule_previous.drop(1).each do |schedule_after_previous| %>
+        <a href="#" class="sidebar-video sidebar-video-minified">
+          <div class="bookmark"></div>
+          <div class="arte7"></div>
+          <%= schedule_after_previous["BAT"] ? "#{schedule_after_previous["BAT"]} Uhr" : "" %>
+          <h3><%= schedule_after_previous["TIT"] %></h3>
+        </a>
+      <% end %>
     </div>
     <div id="column_center" class="column">
       <div id="video-minified">
@@ -41,6 +51,14 @@
       <div id="video">
         <div id="player"></div>
       </div>
+      <div id="footer-inside">
+        <%= link_to "Login", login_path, id: "login" %>
+        <div id="comment_form">
+          <input type="text" name="log_body" value="" id="log_body" autocomplete="off" />
+          <button id="stamp_comment"></button>
+          <button id="send_comment">Senden</button>
+        </div>
+      </div>
 
       <div id="info-bar">
         <div id="count">Loading members count …</div>
@@ -64,18 +82,14 @@
       <% @schedule_next.drop(2).each do |schedule_after_next| %>
         <a href="#" class="sidebar-video sidebar-video-minified">
           <div class="bookmark"></div>
+          <div class="arte7"></div>
           <%= schedule_after_next["BAT"] ? "#{schedule_after_next["BAT"]} Uhr" : "" %>
           <h3><%= schedule_after_next["TIT"] %></h3>
         </a>
       <% end %>
     </div>
   </div>
-  <div id="footer">
-      <%= link_to "Login", login_path, id: "login" %>
-      <div id="comment_form">
-        <input type="text" name="log_body" value="" id="log_body" autocomplete="off" />
-        <button id="stamp_comment"></button>
-        <button id="send_comment">Senden</button>
-      </div>
-  </div>
+  <!--
+  Footer div goes here
+  -->
 </div>

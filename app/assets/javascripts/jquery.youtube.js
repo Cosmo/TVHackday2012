@@ -160,6 +160,12 @@
 								if(settings.progressBar){
 									interval = window.setInterval(function(){
 										elements.elapsed.width(((elements.player.getCurrentTime()/data.duration)*100)+'%');
+										timestamp = elements.player.getCurrentTime();
+										populateComments(timestamp);
+										
+										var triggered = gobal_time_channel.trigger("client-time", { timestamp: timestamp });
+										console.log(triggered);
+										
 									},1000);
 								}
 								

@@ -60,7 +60,7 @@
       
       var left = (584 / videoDuration) * timestamp;
       $("<div id='marker_" + id + "' data-uid='"+uid+"' data-marker-id='"+id+"' data-name='" + name + "' data-text='" + body +
-          "' data-timestamp='"+timestamp+"' class='comment" + user_type + "' style='position:absolute; left:" + left + "px;'></div>")
+          "' data-timestamp='"+timestamp+"' class='comment" + user_type + "' style='position:absolute; left:" + (left - 4) + "px;'></div>")
           .mouseenter(function () {
               $("<div id='c" + id + "' style='width:200px; background-color:#eee; padding:4px;'><img src='https://graph.facebook.com/" +
                   uid + "/picture/' style='float:left; margin-right:5px;' />" +
